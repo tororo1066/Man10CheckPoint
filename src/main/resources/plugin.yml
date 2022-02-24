@@ -6,4 +6,9 @@ api-version: 1.17
 commands:
   mcp:
 
+permissions:
+  mcp.op:
+    default: op
+  mcp.user:
+
 author: tororo_1066

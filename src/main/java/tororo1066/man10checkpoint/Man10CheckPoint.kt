@@ -1,7 +1,6 @@
 package tororo1066.man10checkpoint
 
 import org.bukkit.plugin.java.JavaPlugin
-import tororo1066.man10checkpoint.listener.CheckPointListener
 import java.io.File
 
 class Man10CheckPoint : JavaPlugin() {
