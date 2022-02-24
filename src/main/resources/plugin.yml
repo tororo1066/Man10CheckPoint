@@ -1,0 +1,9 @@
+name: Man10CheckPoint
+version: '${version}'
+main: tororo1066.man10checkpoint.Man10CheckPoint
+api-version: 1.17
+
+commands:
+  mcp:
+
+author: tororo_1066
