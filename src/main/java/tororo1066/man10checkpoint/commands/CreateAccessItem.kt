@@ -16,7 +16,7 @@ class CreateAccessItem : OnlyPlayerExecutor {
             return true
         }
 
-        val item = SItem(Material.valueOf(args[2])).setDisplayName(args[3]).setLore(ArrayList<String>(args.asList()).subList(4,args.size)).setCustomData(Man10CheckPoint.plugin,"AccessPoint", PersistentDataType.STRING, args[1])
+        val item = SItem(Material.valueOf(args[2])).setDisplayName(args[3].replace("&","§")).setLore(ArrayList<String>(args.asList()).subList(4,args.size).map { it.replace("&","§") }).setCustomData(Man10CheckPoint.plugin,"AccessPoint", PersistentDataType.STRING, args[1])
         sender.inventory.addItem(item)
         sender.sendMessage(Man10CheckPoint.prefix + "§aアイテムを付与しました")
         return true

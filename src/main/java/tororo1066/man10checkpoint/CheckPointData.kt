@@ -3,6 +3,7 @@ package tororo1066.man10checkpoint
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.configuration.file.YamlConfiguration
+import tororo1066.tororopluginapi.otherUtils.UsefulUtility
 import java.io.File
 import java.util.UUID
 

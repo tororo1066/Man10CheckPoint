@@ -1,10 +1,7 @@
 package tororo1066.man10checkpoint
 
 import org.bukkit.command.CommandSender
-import tororo1066.man10checkpoint.commands.CreateAccessItem
-import tororo1066.man10checkpoint.commands.CreateCheckPoint
-import tororo1066.man10checkpoint.commands.SetAccessCheckPoint
-import tororo1066.man10checkpoint.commands.TeleportCheckPoint
+import tororo1066.man10checkpoint.commands.*
 import tororo1066.tororopluginapi.sCommand.*
 import java.util.function.Consumer
 
@@ -20,10 +17,17 @@ class CheckPointCommand : SCommand("mcp",Man10CheckPoint.prefix) {
                 SCommandArg().addAllowString("teleport")).addArg(
                 SCommandArg().addAllowType(SCommandArgType.STRING).addAlias("チェックポイント名").addAlias(Man10CheckPoint.checkPoints.map { it.key }.toTypedArray())).setExecutor(TeleportCheckPoint()))
 
+        addCommand(SCommandObject().addNeedPermission("mcp.user").addArg(
+                SCommandArg().addAllowString("list")).setExecutor(CheckPointList()))
+
         addCommand(SCommandObject().addNeedPermission("mcp.op").addArg(
                 SCommandArg().addAllowString("create")).addArg(
                 SCommandArg().addAllowType(SCommandArgType.STRING).addAlias("内部名")).addArg(
                 SCommandArg().addAllowType(SCommandArgType.STRING).addAlias("名前")).setExecutor(CreateCheckPoint()))
+
+        addCommand(SCommandObject().addNeedPermission("mcp.op").addArg(
+                SCommandArg().addAllowString("delete")).addArg(
+                SCommandArg().addAllowType(SCommandArgType.STRING).addAlias("内部名")).setExecutor(DeleteCheckPoint()))
 
         addCommand(SCommandObject().addNeedPermission("mcp.op").addArg(
                 SCommandArg().addAllowString("setaccess")).addArg(
@@ -48,7 +52,7 @@ class CheckPointCommand : SCommand("mcp",Man10CheckPoint.prefix) {
     }
 
     private fun showHelp(sender: CommandSender){
-        sender.sendMessage("§a===============§e§lMan10CheckPoint§a===============")
+        sender.sendMessage("§a=================§e§lMan10CheckPoint§a==================")
         if (sender.hasPermission("mcp.user")){
             sender.sendMessage("§b/mcp teleport <チェックポイント名> §dチェックポイントにテレポートします")
             sender.sendMessage("§b/mcp report <件名> <本文> §dこのプラグインについてレポートします")
@@ -59,6 +63,6 @@ class CheckPointCommand : SCommand("mcp",Man10CheckPoint.prefix) {
             sender.sendMessage("§b/mcp createitem <チェックポイント名> <material> <アイテム名> <ロール...> §dチェックポイントにアクセスできるようになるアイテムを作成します")
             sender.sendMessage("§b/mcp reload プラグインをリロードします")
         }
-        sender.sendMessage("§a===============§e§lMan10CheckPoint§a===============")
+        sender.sendMessage("§a=================§e§lMan10CheckPoint§a=Author:tororo_1066")
     }
 }

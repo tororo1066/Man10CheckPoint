@@ -15,8 +15,12 @@ class TeleportCheckPoint : OnlyPlayerExecutor {
         }
 
         if (!cPData.checkedPlayers.contains(sender.uniqueId)){
-            sender.sendMessage(Man10CheckPoint.prefix + "§4あなたはそこのチェックポイントにアクセスできません")
-            return true
+            if (sender.isOp){
+                sender.sendMessage(Man10CheckPoint.prefix + "§bあなたはOPのためアクセス権限を無視しました")
+            } else {
+                sender.sendMessage(Man10CheckPoint.prefix + "§4あなたはそこのチェックポイントにアクセスできません")
+                return true
+            }
         }
 
         sender.teleport(cPData.location)

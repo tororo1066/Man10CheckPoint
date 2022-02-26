@@ -58,7 +58,7 @@ repositories {
 }
 dependencies {
     compileOnly "com.github.MilkBowl:VaultAPI:1.7"
-    compile 'com.github.tororo1066:TororoPluginAPI:9256a09897'
+    compile 'com.github.tororo1066:TororoPluginAPI:498e6f525a'
 }
 
 tasks.withType(JavaCompile) {
