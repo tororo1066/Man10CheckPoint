@@ -8,6 +8,10 @@ import tororo1066.tororopluginapi.sCommand.OnlyPlayerExecutor
 
 class TeleportCheckPoint : OnlyPlayerExecutor {
     override fun onCommand(sender: Player, command: Command, label: String, args: Array<out String>): Boolean {
+        if (!Man10CheckPoint.useWorlds.contains(sender.world.name)){
+            sender.sendMessage(Man10CheckPoint.prefix + "§4このワールドではチェックポイントにテレポートできません")
+            return true
+        }
         val cPData = Man10CheckPoint.checkPoints[args[1]]
         if (cPData == null){
             sender.sendMessage(Man10CheckPoint.prefix + "§4場所が存在しません")

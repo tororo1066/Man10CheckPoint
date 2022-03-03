@@ -9,6 +9,7 @@ class Man10CheckPoint : JavaPlugin() {
         lateinit var plugin: Man10CheckPoint
         val checkPoints = HashMap<String,CheckPointData>()
         const val prefix = "§e§l[§d§lMan10§a§lCheckPoint§e§l]"
+        val useWorlds = ArrayList<String>()
         fun reload(){
             plugin.saveDefaultConfig()
             checkPoints.clear()
@@ -22,6 +23,7 @@ class Man10CheckPoint : JavaPlugin() {
                 }
             }
             CheckPointCommand()
+            useWorlds.addAll(plugin.config.getStringList("useWorlds"))
         }
     }
 

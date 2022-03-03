@@ -11,6 +11,8 @@ class CheckPointCommand : SCommand("mcp",Man10CheckPoint.prefix) {
         setCommandNoFoundEvent { showHelp(it.sender) }
         registerReportCommand(Man10CheckPoint.plugin,"mcp.user","mcp.op")
 
+        addCommand(SCommandObject().addNeedPermission("mcp.user").setExecutor(CheckPointList()))
+
         addCommand(SCommandObject().addArg(SCommandArg().addAllowString("help")).setExecutor(Consumer<SCommandData> { showHelp(it.sender) }))
 
         addCommand(SCommandObject().addNeedPermission("mcp.user").addArg(
